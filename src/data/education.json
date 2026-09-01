@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "icon": "🎓",
+    "level": "Bachelor of Technology",
+    "degree": "Computer Science & Technology",
+    "college": "Shreeyash College of Engineering & Technology",
+    "affiliation": "Affiliated to DBATU University · Chh. Sambhajinagar, Maharashtra, India",
+    "year": "Sep 2023 — July 2026"
+  },
+  {
+    "id": 2,
+    "icon": "📘",
+    "level": "Diploma",
+    "degree": "Computer Technology",
+    "college": "Government Polytechnic Solapur",
+    "affiliation": "Affiliated to MSBTE · Maharashtra, India",
+    "year": "Dec 2020 — July 2023"
+  }
+]

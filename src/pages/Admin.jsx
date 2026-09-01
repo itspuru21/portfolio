@@ -1,22 +1,18 @@
 import { useState } from 'react';
 
 export default function Admin() {
-  // Credentials State
   const [token, setToken] = useState('');
-  const [owner, setOwner] = useState(''); // e.g., itspuru21
-  const [repo, setRepo] = useState('portfolio'); // your repo name
+  const [owner, setOwner] = useState('');
+  const [repo, setRepo] = useState('portfolio');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Post Form State
   const [title, setTitle] = useState('');
   const [categories, setCategories] = useState('');
   const [excerpt, setExcerpt] = useState('');
   const [content, setContent] = useState('');
   
-  // UI State
   const [status, setStatus] = useState({ loading: false, message: '', error: false });
 
-  // Safe Base64 encoding that handles special characters properly
   const utf8ToBase64 = (str) => {
     return window.btoa(unescape(encodeURIComponent(str)));
   };
@@ -25,11 +21,9 @@ export default function Admin() {
     e.preventDefault();
     setStatus({ loading: true, message: 'Publishing to GitHub...', error: false });
 
-    // 1. Generate a URL-friendly slug from the title
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-    const date = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+    const date = new Date().toISOString().split('T')[0];
     
-    // 2. Format the Frontmatter and Markdown body
     const categoryArray = categories.split(',').map(c => `"${c.trim()}"`).join(', ');
     const fileContent = `---
 title: "${title}"
@@ -39,7 +33,6 @@ excerpt: "${excerpt}"
 ---
 ${content}`;
 
-    // 3. Call the GitHub REST API
     try {
       const url = `https://api.github.com/repos/${owner}/${repo}/contents/src/content/blogs/${slug}.md`;
       
@@ -61,7 +54,6 @@ ${content}`;
       }
 
       setStatus({ loading: false, message: 'Success! Post published to GitHub.', error: false });
-      // Clear form on success
       setTitle(''); setCategories(''); setExcerpt(''); setContent('');
       
     } catch (error) {
@@ -71,53 +63,55 @@ ${content}`;
 
   if (!isLoggedIn) {
     return (
-      <div className="max-w-md mx-auto mt-10 p-6 border rounded-lg shadow-sm">
-        <h2 className="text-2xl font-bold mb-4">Admin Login</h2>
-        <p className="text-sm text-gray-500 mb-6">Enter your GitHub details to interact with the repository API.</p>
-        <div className="space-y-4">
-          <input type="text" placeholder="GitHub Username (e.g. itspuru21)" className="w-full p-2 border rounded" value={owner} onChange={e => setOwner(e.target.value)} />
-          <input type="text" placeholder="Repository Name (e.g. portfolio)" className="w-full p-2 border rounded" value={repo} onChange={e => setRepo(e.target.value)} />
-          <input type="password" placeholder="GitHub Personal Access Token" className="w-full p-2 border rounded" value={token} onChange={e => setToken(e.target.value)} />
-          <button onClick={() => setIsLoggedIn(true)} className="w-full bg-black text-white p-2 rounded hover:bg-gray-800">Access CMS</button>
+      <div className="w-full max-w-md mx-auto py-10">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 p-8 rounded-2xl shadow-xl">
+          <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white mb-2">Admin Login</h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">Enter your GitHub details to access the CMS.</p>
+          <div className="space-y-5">
+            <input type="text" placeholder="GitHub Username (e.g. itspuru21)" className="w-full p-3 rounded-lg bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" value={owner} onChange={e => setOwner(e.target.value)} />
+            <input type="text" placeholder="Repository Name (e.g. portfolio)" className="w-full p-3 rounded-lg bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" value={repo} onChange={e => setRepo(e.target.value)} />
+            <input type="password" placeholder="GitHub PAT Token" className="w-full p-3 rounded-lg bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" value={token} onChange={e => setToken(e.target.value)} />
+            <button onClick={() => setIsLoggedIn(true)} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-colors">Access CMS</button>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-3xl mx-auto mt-4">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Write New Post</h1>
-        <button onClick={() => setIsLoggedIn(false)} className="text-sm text-red-500 hover:underline">Log Out</button>
+    <div className="w-full max-w-3xl mx-auto py-10">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">Write New Post</h1>
+        <button onClick={() => setIsLoggedIn(false)} className="text-sm font-semibold text-red-500 hover:text-red-600 hover:underline">Log Out</button>
       </div>
       
-      <form onSubmit={handlePublish} className="space-y-4 border p-6 rounded-lg shadow-sm">
+      <form onSubmit={handlePublish} className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 p-6 sm:p-8 rounded-2xl shadow-xl space-y-6">
         <div>
-          <label className="block text-sm font-bold mb-1">Title</label>
-          <input required type="text" className="w-full p-2 border rounded" value={title} onChange={e => setTitle(e.target.value)} />
+          <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Title</label>
+          <input required type="text" className="w-full p-3 rounded-lg bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" value={title} onChange={e => setTitle(e.target.value)} />
         </div>
         
         <div>
-          <label className="block text-sm font-bold mb-1">Categories (comma separated)</label>
-          <input required type="text" placeholder="ChaosForge-Lab, DevOps" className="w-full p-2 border rounded" value={categories} onChange={e => setCategories(e.target.value)} />
+          <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Categories (comma separated)</label>
+          <input required type="text" placeholder="ChaosForge-Lab, DevOps" className="w-full p-3 rounded-lg bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" value={categories} onChange={e => setCategories(e.target.value)} />
         </div>
 
         <div>
-          <label className="block text-sm font-bold mb-1">Excerpt (short summary)</label>
-          <input required type="text" className="w-full p-2 border rounded" value={excerpt} onChange={e => setExcerpt(e.target.value)} />
+          <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Excerpt (short summary)</label>
+          <input required type="text" className="w-full p-3 rounded-lg bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all" value={excerpt} onChange={e => setExcerpt(e.target.value)} />
         </div>
 
         <div>
-          <label className="block text-sm font-bold mb-1">Markdown Content</label>
-          <textarea required rows="10" className="w-full p-2 border rounded font-mono text-sm" value={content} onChange={e => setContent(e.target.value)} placeholder="## Start writing here..."></textarea>
+          <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Markdown Content</label>
+          <textarea required rows="12" className="w-full p-3 rounded-lg bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white font-mono text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all" value={content} onChange={e => setContent(e.target.value)} placeholder="## Start writing here..."></textarea>
         </div>
 
-        <button type="submit" disabled={status.loading} className="w-full bg-blue-600 text-white p-3 rounded font-bold hover:bg-blue-700 disabled:opacity-50 transition-opacity">
+        <button type="submit" disabled={status.loading} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg disabled:opacity-50 transition-colors">
           {status.loading ? 'Pushing to Repository...' : 'Publish to GitHub'}
         </button>
 
         {status.message && (
-          <div className={`p-3 rounded mt-4 ${status.error ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+          <div className={`p-4 rounded-lg mt-6 border ${status.error ? 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-600 dark:text-red-400' : 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-600 dark:text-green-400'}`}>
             {status.message}
           </div>
         )}

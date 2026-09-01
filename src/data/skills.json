@@ -1,0 +1,18 @@
+[
+  {
+    "category": "Languages",
+    "skills": ["C", "C++", "C#", "Python", "SQL", "Kotlin"]
+  },
+  {
+    "category": "Cloud & DevOps",
+    "skills": ["AWS EC2", "Kubernetes", "Terraform", "Docker", "GitHub Actions", "Linux"]
+  },
+  {
+    "category": "Android Development",
+    "skills": ["Android Studio", "Kotlin Coroutines", "Jetpack Compose"]
+  },
+  {
+    "category": "Game Development",
+    "skills": ["Unity Engine", "C# Scripting", "Game Physics"]
+  }
+]

@@ -1,32 +1,42 @@
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import Admin from './pages/Admin';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Experience from './components/Experience';
+import Education from './components/Education';
 
-// A temporary Home placeholder for now
 const Home = () => (
-  <div className="p-8">
-    <h1 className="text-3xl font-bold">Home Page (Projects & Skills)</h1>
-    <Link to="/blog" className="text-blue-500 hover:underline">Go to Blog</Link>
+  <div className="flex flex-col gap-10 pb-24">
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Experience />
+    <Education />
   </div>
 );
 
 export default function App() {
   return (
     <Router>
-      <div className="max-w-4xl mx-auto p-4 font-sans text-gray-800">
-        <nav className="flex gap-4 mb-8 border-b pb-4">
-          <Link to="/" className="font-bold hover:text-blue-600">Home</Link>
-          <Link to="/blog" className="font-bold hover:text-blue-600">Blog</Link>
-          <Link to="/admin" className="font-bold hover:text-red-600 ml-auto">Admin</Link>
-        </nav>
+      {/* The background and text colors are controlled here globally for dark/light mode */}
+      <div className="min-h-screen bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100 transition-colors duration-300">
+        <Navbar />
         
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/admin" element={<Admin />} />
-        </Routes>
+        {/* pt-24 pushes all page content down uniformly so the navbar never covers it */}
+        <main className="pt-24 px-4 sm:px-6 max-w-6xl mx-auto">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/admin" element={<Admin />} />
+          </Routes>
+        </main>
       </div>
     </Router>
   );
