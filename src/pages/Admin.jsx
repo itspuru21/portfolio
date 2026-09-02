@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-// Pre-defined taxonomy for a DevOps portfolio
 const AVAILABLE_CATEGORIES = ['AWS', 'Terraform', 'Kubernetes', 'CI/CD', 'Security', 'Networking', 'Python', 'Chaos Engineering', 'GitOps'];
 const AVAILABLE_PROJECTS = ['General / Concept', 'ChaosForge-Lab', 'GitOps EKS Cluster', 'Serverless Log Pipeline', '3-Tier VPC Design', 'React Portfolio'];
 
@@ -24,14 +23,16 @@ export default function Admin() {
     e.preventDefault();
     setStatus('Publishing...');
 
-    const date = new Date().toISOString().split('T')[0];
+    // --- FIXED: Get exact timestamp for sorting, but keep filename clean ---
+    const exactTime = new Date().toISOString(); 
+    const dateOnly = exactTime.split('T')[0]; 
+    
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-    const filename = `${date}-${slug}.md`;
+    const filename = `${dateOnly}-${slug}.md`;
 
-    // The new Frontmatter includes project and multiple categories
     const fileContent = `---
 title: "${title}"
-date: "${date}"
+date: "${exactTime}"
 summary: "${summary}"
 project: "${selectedProject}"
 categories: [${selectedCategories.map(c => `"${c}"`).join(', ')}]
@@ -48,7 +49,7 @@ ${content}`;
         },
         body: JSON.stringify({
           message: `blog: published ${title}`,
-          content: btoa(unescape(encodeURIComponent(fileContent))), // Safe base64 encoding
+          content: btoa(unescape(encodeURIComponent(fileContent))), 
           branch: 'main'
         })
       });
@@ -73,13 +74,11 @@ ${content}`;
         </h1>
         
         <form onSubmit={handlePublish} className="space-y-6">
-          {/* GitHub Token */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">GitHub Personal Access Token (PAT)</label>
             <input type="password" required value={token} onChange={e => setToken(e.target.value)} className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none" />
           </div>
 
-          {/* Title & Summary */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Post Title</label>
             <input type="text" required value={title} onChange={e => setTitle(e.target.value)} className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none" />
@@ -90,7 +89,6 @@ ${content}`;
             <input type="text" required value={summary} onChange={e => setSummary(e.target.value)} className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none" />
           </div>
 
-          {/* NEW: Project Dropdown & Categories */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 bg-gray-50 dark:bg-slate-800/50 rounded-xl border border-gray-200 dark:border-slate-700">
             <div>
               <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Related Project</label>
@@ -116,7 +114,6 @@ ${content}`;
             </div>
           </div>
 
-          {/* Markdown Content */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Markdown Content</label>
             <textarea required rows="10" value={content} onChange={e => setContent(e.target.value)} className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none font-mono text-sm" placeholder="## Introduction..."></textarea>

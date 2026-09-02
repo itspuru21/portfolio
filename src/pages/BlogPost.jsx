@@ -11,24 +11,31 @@ export default function BlogPost() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        // FIX: Fetch directly from raw.githubusercontent.com for instant access
         const res = await fetch(`https://raw.githubusercontent.com/itspuru21/portfolio/main/public/posts/${slug}.md`);
         
         if (!res.ok) throw new Error('Post not found');
         
         const text = await res.text();
         
-        // Extract frontmatter
         const titleMatch = text.match(/title:\s*"(.*?)"/);
         const dateMatch = text.match(/date:\s*"(.*?)"/);
         const projectMatch = text.match(/project:\s*"(.*?)"/);
         
-        // Remove frontmatter to get content
         const content = text.replace(/---[\s\S]*?---/, '').trim();
+
+        // --- FIXED: Format the raw ISO timestamp into a beautiful date ---
+        let displayDate = '';
+        if (dateMatch && dateMatch[1]) {
+          displayDate = new Date(dateMatch[1]).toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          });
+        }
 
         setPost({
           title: titleMatch ? titleMatch[1] : 'Untitled',
-          date: dateMatch ? dateMatch[1] : '',
+          date: displayDate,
           project: projectMatch ? projectMatch[1] : '',
           content: content
         });
