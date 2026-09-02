@@ -23,7 +23,6 @@ export default function Admin() {
     e.preventDefault();
     setStatus('Publishing...');
 
-    // --- FIXED: Get exact timestamp for sorting, but keep filename clean ---
     const exactTime = new Date().toISOString(); 
     const dateOnly = exactTime.split('T')[0]; 
     
@@ -117,7 +116,19 @@ ${content}`;
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Markdown Content</label>
             <textarea required rows="10" value={content} onChange={e => setContent(e.target.value)} className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none font-mono text-sm" placeholder="## Introduction..."></textarea>
-            <p className="text-xs text-gray-500 mt-2">💡 Tip: To add images, drag & drop them into a GitHub Issue comment box, copy the markdown link it generates, and paste it here.</p>
+            
+            {/* --- NEW: Markdown Cheat Sheet Box --- */}
+            <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 rounded-lg text-xs text-gray-700 dark:text-gray-300 space-y-2">
+              <p className="font-bold text-blue-700 dark:text-blue-400 text-sm mb-2">💡 Markdown Quick Reference:</p>
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li><strong>Images:</strong> Drag & drop into a GitHub Issue comment, copy the generated code, and paste here.</li>
+                <li><strong>Standard Links:</strong> <code>[Link Text](https://example.com)</code></li>
+                <li><strong>Cross-Blog Links:</strong> <code>[Read Other Post](#/blog/YYYY-MM-DD-post-slug)</code></li>
+                <li><strong>Anchor Links (Same Page):</strong> <code>[Jump to Setup](#setup)</code> (Automatically jumps to a <code>## Setup</code> heading).</li>
+              </ul>
+            </div>
+            {/* -------------------------------------- */}
+            
           </div>
 
           <button type="submit" className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors">
