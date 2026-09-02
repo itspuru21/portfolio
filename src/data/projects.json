@@ -4,6 +4,7 @@
     "title": "ChaosForge-Lab",
     "type": "Resilience Engineering",
     "description": "Predictable chaos engineering tool for testing Kubernetes auto-healing and Terraform recovery with live metrics.",
+    "details": "Leveraged Kubernetes configurations and AWS Fault Injection Simulator to randomly terminate pods and EC2 nodes. Proved the architecture's self-healing capabilities and significantly reduced recovery time objective (RTO) during simulated outages.",
     "techStack": ["Kubernetes", "Terraform", "AWS EC2", "Docker"],
     "githubLink": "https://github.com/itspuru21/chaosforge-lab"
   },
@@ -12,6 +13,7 @@
     "title": "GitOps EKS Cluster Provisioning",
     "type": "Container Orchestration",
     "description": "Automated the deployment of an AWS EKS cluster using Terraform, with ArgoCD managing continuous deployment of microservices.",
+    "details": "Implemented a fully declarative GitOps workflow. Terraform provisions the VPC and EKS cluster, while ArgoCD constantly reconciles the live cluster state against the GitHub repository. This eliminates configuration drift and enables 1-click disaster recovery.",
     "techStack": ["AWS EKS", "Terraform", "ArgoCD", "Helm"],
     "githubLink": "https://github.com/itspuru21"
   },
@@ -20,6 +22,7 @@
     "title": "Serverless Log Analytics Pipeline",
     "type": "AWS Architecture",
     "description": "Built an event-driven architecture using Python (Boto3) and AWS Lambda to parse CloudWatch logs and trigger SNS alerts for anomalies.",
+    "details": "Designed a cost-effective, event-driven monitoring solution. AWS Lambda functions parse CloudWatch logs in real-time, matching specific error patterns and routing critical alerts to SNS topics. Effectively reduced alert fatigue by filtering noise.",
     "techStack": ["Python", "AWS Lambda", "CloudWatch", "SNS"],
     "githubLink": "https://github.com/itspuru21"
   },
@@ -28,6 +31,7 @@
     "title": "Highly Available 3-Tier VPC Design",
     "type": "Networking & Infrastructure",
     "description": "Architected a fault-tolerant AWS environment spanning multiple Availability Zones with Application Load Balancers and Auto Scaling Groups.",
+    "details": "Built a production-ready AWS network topology from scratch. Features public and private subnets across 3 Availability Zones, NAT Gateways for secure outbound traffic, and an Application Load Balancer distributing traffic to an Auto Scaling Group.",
     "techStack": ["AWS VPC", "CloudFormation", "ALB", "Bash"],
     "githubLink": "https://github.com/itspuru21"
   },
@@ -35,7 +39,8 @@
     "id": 5,
     "title": "GitOps-Backed React Portfolio",
     "type": "Frontend & CI/CD",
-    "description": "A modular, Git-backed React portfolio automatically deployed via GitHub Actions. Features a custom headless CMS utilizing the GitHub API for direct Markdown commits.",
+    "description": "A modular, Git-backed React portfolio automatically deployed via GitHub Actions. Features a custom headless CMS.",
+    "details": "Instead of a simple static site, I engineered a serverless headless CMS. React handles the frontend, Tailwind manages the responsive UI, and GitHub Actions automatically builds and deploys changes to GitHub Pages whenever I push a new Markdown post via the GitHub API.",
     "techStack": ["React", "Tailwind", "GitHub Actions", "REST API"],
     "githubLink": "https://github.com/itspuru21/portfolio",
     "liveLink": "https://itspuru21.github.io/portfolio/"

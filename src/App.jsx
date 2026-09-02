@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import Admin from './pages/Admin';
+import ScrollToTop from './components/ScrollToTop';
 
 const Home = () => (
   <div className="flex flex-col pb-12">
@@ -51,6 +52,7 @@ export default function App() {
         </main>
 
         <div className="relative z-10">
+          <ScrollToTop />
           <Footer />
         </div>
       </div>
