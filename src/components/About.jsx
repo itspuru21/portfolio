@@ -56,6 +56,17 @@ export default function About() {
 
         {/* Side Info Card */}
         <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl shadow-xl overflow-hidden fade-up opacity-0 translate-y-8 transition-all duration-700 delay-200">
+
+          {/* --- Profile Image Placeholder --- */}
+          {/* Replace 'your-photo.jpg' with the actual path once you put an image in your 'public' folder */}
+          <div className="w-full h-64 bg-gray-200 dark:bg-slate-800 relative">
+            <img 
+              src="/portfolio/profile.jpg" 
+              alt="Purushottam Garad" 
+              className="w-full h-full object-cover" 
+            />
+          </div>
+
           <div className="divide-y divide-gray-200 dark:divide-slate-800">
             <div className="flex justify-between items-center p-4">
               <span className="text-gray-500 dark:text-gray-400 font-medium">Name</span>
@@ -73,9 +84,18 @@ export default function About() {
               <span className="text-gray-500 dark:text-gray-400 font-medium">Location</span>
               <span className="font-semibold text-gray-900 dark:text-white text-right">Maharashtra, India</span>
             </div>
-            <div className="flex justify-between items-center p-4">
-              <span className="text-gray-500 dark:text-gray-400 font-medium">Status</span>
-              <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 py-1 px-3 rounded-full text-sm font-bold">Open to Work</span>
+
+            {/* --- Updated Status Badges --- */}
+            <div className="flex justify-between items-start p-4">
+              <span className="text-gray-500 dark:text-gray-400 font-medium mt-1">Status</span>
+              <div className="flex flex-col items-end gap-2">
+                <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 py-1 px-3 rounded-full text-xs font-bold border border-green-200 dark:border-green-800">
+                  Open to Work
+                </span>
+                <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 py-1 px-3 rounded-full text-xs font-bold border border-indigo-200 dark:border-indigo-800">
+                  Open to Relocation
+                </span>
+              </div>
             </div>
           </div>
         </div>

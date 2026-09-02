@@ -16,8 +16,8 @@ const Home = () => (
   <div className="flex flex-col gap-10">
     <Hero />
     <About />
-    <Skills />
     <Projects />
+    <Skills />
     <Experience />
     <Education />
     <Contact />

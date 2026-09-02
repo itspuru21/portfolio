@@ -42,8 +42,8 @@ export default function Navbar() {
           {isHome ? (
             <>
               <li><button onClick={() => scrollToSection('about')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</button></li>
-              <li><button onClick={() => scrollToSection('skills')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</button></li>
               <li><button onClick={() => scrollToSection('projects')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</button></li>
+              <li><button onClick={() => scrollToSection('skills')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</button></li>
               <li><button onClick={() => scrollToSection('experience')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</button></li>
               <li><button onClick={() => scrollToSection('contact')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</button></li>
             </>
