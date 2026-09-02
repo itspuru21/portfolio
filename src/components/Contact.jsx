@@ -22,15 +22,26 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-10" ref={sectionRef}>
-      <div className="text-center mb-16 fade-up opacity-0 translate-y-8 transition-all duration-700">
+      {/* Header & Availability Badge */}
+      <div className="text-center mb-12 fade-up opacity-0 translate-y-8 transition-all duration-700">
         <span className="text-blue-600 dark:text-blue-500 font-bold tracking-wider uppercase text-sm">Say Hello</span>
         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mt-2 mb-4">Get In Touch</h2>
-        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          I'm open to opportunities, collaborations, or just a friendly chat. Reach out!
+        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6">
+          I'm open to new opportunities, technical collaborations, or just a friendly chat about Cloud and DevOps.
         </p>
+        
+        {/* --- NEW: Timezone & Availability Badge --- */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 text-sm font-medium border border-slate-200 dark:border-slate-700 shadow-sm">
+          <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Maharashtra, India (IST - UTC+5:30) • Open to Global Remote
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      {/* Contact Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
         
         {/* Email Card */}
         <a 
@@ -78,7 +89,20 @@ export default function Contact() {
             Purushottam Garad
           </span>
         </a>
+      </div>
 
+      {/* --- NEW: Resume Download Button --- */}
+      <div className="text-center fade-up opacity-0 translate-y-8 transition-all duration-700" style={{ transitionDelay: '300ms' }}>
+        <a 
+          href="/portfolio/resume.pdf" 
+          download="Purushottam_Garad_Resume.pdf"
+          className="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg hover:shadow-blue-500/30 transition-all hover:-translate-y-1"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Download Resume
+        </a>
       </div>
     </section>
   );
