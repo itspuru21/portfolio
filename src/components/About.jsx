@@ -30,14 +30,37 @@ export default function About() {
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 items-start">
         
-        {/* Text Content */}
+        {/* Left Side: Text Content */}
         <div className="space-y-6 text-gray-600 dark:text-gray-400 text-lg fade-up opacity-0 translate-y-8 transition-all duration-700 delay-100">
           <p>I'm Purushottam Garad, a fresh B.Tech graduate in Computer Science & Technology from Shreeyash College of Engineering and Technology, Chh. Sambhajinagar, Maharashtra.</p>
           <p>My journey started with a Diploma in Computer Technology, where I discovered my love for building software — from Android apps to fully-fledged Unity games. I enjoy turning ideas into interactive, real-world experiences through code.</p>
           <p>Though I'm at the start of my professional career, I've built a strong technical foundation across multiple languages and platforms, and I completed an internship in WordPress development while still in my diploma program.</p>
           
+          {/* --- MOVED QUICK INFO (Degree, Location, Status) --- */}
+          <div className="flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-4 pt-4 pb-2 border-b border-gray-200 dark:border-slate-800">
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">Degree</span>
+              <span className="font-bold text-gray-900 dark:text-white">B.Tech — CST</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">Location</span>
+              <span className="font-bold text-gray-900 dark:text-white">Maharashtra, India</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Status</span>
+              <div className="flex flex-wrap gap-2">
+                <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 py-1 px-3 rounded-full text-xs font-bold border border-green-200 dark:border-green-800">
+                  Open to Work
+                </span>
+                <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 py-1 px-3 rounded-full text-xs font-bold border border-indigo-200 dark:border-indigo-800">
+                  Open to Relocation
+                </span>
+              </div>
+            </div>
+          </div>
+          
           {/* Facts/Stats */}
-          <div className="flex flex-wrap gap-8 pt-6">
+          <div className="flex flex-wrap gap-8 pt-4">
             <div className="flex flex-col">
               <span className="text-4xl font-black text-blue-600 dark:text-blue-500">2+</span>
               <span className="text-sm font-semibold uppercase tracking-wide mt-1">Years of<br />Coding</span>
@@ -53,44 +76,14 @@ export default function About() {
           </div>
         </div>
 
-        {/* Side Info Card */}
+        {/* Right Side: Profile Image ONLY */}
         <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl shadow-xl overflow-hidden fade-up opacity-0 translate-y-8 transition-all duration-700 delay-200">
-
-          {/* --- Profile Image (Portrait optimized) --- */}
-          {/* We use aspect-[4/5] to make it a tall rectangle, and object-top to keep your head in frame */}
           <div className="w-full aspect-[4/5] bg-gray-200 dark:bg-slate-800 relative">
             <img 
-              src="/portfolio/profile.jpg" 
+              src="/portfolio/profile.jpg.jpg" 
               alt="Purushottam Garad" 
-              className="w-full h-full object-cover object-top" 
+              className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
             />
-          </div>
-
-          <div className="divide-y divide-gray-200 dark:divide-slate-800">
-            {/* Removed Name and University rows to keep it concise */}
-            
-            <div className="flex justify-between items-center p-4">
-              <span className="text-gray-500 dark:text-gray-400 font-medium">Degree</span>
-              <span className="font-semibold text-gray-900 dark:text-white text-right">B.Tech — CST</span>
-            </div>
-            
-            <div className="flex justify-between items-center p-4">
-              <span className="text-gray-500 dark:text-gray-400 font-medium">Location</span>
-              <span className="font-semibold text-gray-900 dark:text-white text-right">Maharashtra, India</span>
-            </div>
-
-            {/* --- Status Badges --- */}
-            <div className="flex justify-between items-start p-4">
-              <span className="text-gray-500 dark:text-gray-400 font-medium mt-1">Status</span>
-              <div className="flex flex-col items-end gap-2">
-                <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 py-1 px-3 rounded-full text-xs font-bold border border-green-200 dark:border-green-800">
-                  Open to Work
-                </span>
-                <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 py-1 px-3 rounded-full text-xs font-bold border border-indigo-200 dark:border-indigo-800">
-                  Open to Relocation
-                </span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
