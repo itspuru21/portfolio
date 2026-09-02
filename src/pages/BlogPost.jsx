@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import rehypeSlug from 'rehype-slug'; // <-- NEW IMPORT
+import rehypeSlug from 'rehype-slug';
+import rehypeRaw from 'rehype-raw'; 
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -86,7 +87,7 @@ export default function BlogPost() {
 
       <article className="prose prose-lg dark:prose-invert prose-blue max-w-none prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-xl prose-img:shadow-lg">
             <ReactMarkdown 
-              rehypePlugins={[rehypeSlug]}
+              rehypePlugins={[rehypeSlug, rehypeRaw]}
               components={{
                 a: (props) => {
                   // Create a safe copy of props and remove 'node' to prevent React DOM warnings 
