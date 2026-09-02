@@ -9,12 +9,12 @@ export default function Admin() {
   const [content, setContent] = useState('');
   const [selectedProject, setSelectedProject] = useState('General / Concept');
   const [selectedCategories, setSelectedCategories] = useState([]);
-  
+
   const [token, setToken] = useState('');
   const [status, setStatus] = useState('');
 
   const handleCategoryToggle = (category) => {
-    setSelectedCategories(prev => 
+    setSelectedCategories(prev =>
       prev.includes(category) ? prev.filter(c => c !== category) : [...prev, category]
     );
   };
@@ -23,9 +23,9 @@ export default function Admin() {
     e.preventDefault();
     setStatus('Publishing...');
 
-    const exactTime = new Date().toISOString(); 
-    const dateOnly = exactTime.split('T')[0]; 
-    
+    const exactTime = new Date().toISOString();
+    const dateOnly = exactTime.split('T')[0];
+
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
     const filename = `${dateOnly}-${slug}.md`;
 
@@ -48,7 +48,7 @@ ${content}`;
         },
         body: JSON.stringify({
           message: `blog: published ${title}`,
-          content: btoa(unescape(encodeURIComponent(fileContent))), 
+          content: btoa(unescape(encodeURIComponent(fileContent))),
           branch: 'main'
         })
       });
@@ -71,7 +71,7 @@ ${content}`;
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-b border-gray-200 dark:border-slate-800 pb-4">
           Write a New Engineering Log
         </h1>
-        
+
         <form onSubmit={handlePublish} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">GitHub Personal Access Token (PAT)</label>
@@ -82,7 +82,7 @@ ${content}`;
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Post Title</label>
             <input type="text" required value={title} onChange={e => setTitle(e.target.value)} className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none" />
           </div>
-          
+
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Short Summary</label>
             <input type="text" required value={summary} onChange={e => setSummary(e.target.value)} className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none" />
@@ -95,7 +95,7 @@ ${content}`;
                 {AVAILABLE_PROJECTS.map(p => <option key={p} value={p}>{p}</option>)}
               </select>
             </div>
-            
+
             <div>
               <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Tags / Categories (Select multiple)</label>
               <div className="flex flex-wrap gap-2">
@@ -116,27 +116,34 @@ ${content}`;
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Markdown Content</label>
             <textarea required rows="10" value={content} onChange={e => setContent(e.target.value)} className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none font-mono text-sm" placeholder="## Introduction..."></textarea>
-            
+
             {/* --- UPGRADED: Expanded Markdown Cheat Sheet Box --- */}
             <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 rounded-lg text-xs text-gray-700 dark:text-gray-300 space-y-2">
               <p className="font-bold text-blue-700 dark:text-blue-400 text-sm mb-2">💡 Markdown Quick Reference:</p>
               <ul className="list-disc pl-5 space-y-2">
                 <li><strong>Images:</strong> Upload to the <code>public/images/</code> folder in GitHub, then use: <code>![Alt](/public/images/iamgename.imageextension)</code></li>
-                <li><strong>Video:</strong> Paste Google Drive embed code. Change width/height to: <code>className="w-full aspect-video rounded-xl shadow-lg"</code></li>
+                <li>
+                  <strong>Google Drive Video:</strong> Get the embed code, then replace the <code>width</code> and <code>height</code> properties with Tailwind classes:
+                  <div className="mt-1 p-2 bg-gray-100 dark:bg-slate-800 rounded text-gray-500 overflow-x-auto whitespace-nowrap">
+                    <code>
+                      &lt;iframe src="https://drive.google.com/..." className="w-full aspect-video rounded-xl shadow-lg" allow="autoplay"&gt;&lt;/iframe&gt;
+                    </code>
+                  </div>
+                </li>
                 <li><strong>Standard Link:</strong> <code>[Website](https://example.com)</code></li>
                 <li><strong>Cross-Blog Link:</strong> <code>[Other Post](#/blog/YYYY-MM-DD-slug)</code></li>
-                <li><strong>Same-Page Jump:</strong> <code>[Jump to Setup](#setup)</code> <br/><span className="text-gray-500 dark:text-gray-500">↳ (Automatically scrolls to the <code>## Setup</code> heading on the current page).</span></li>
-                <li><strong>Deep Cross-Blog Jump:</strong> <code>[Other Post Setup](#/blog/YYYY-MM-DD-slug#setup)</code> <br/><span className="text-gray-500 dark:text-gray-500">↳ (Opens the other blog post and immediately scrolls down to its Setup heading!).</span></li>
+                <li><strong>Same-Page Jump:</strong> <code>[Jump to Setup](#setup)</code> <br /><span className="text-gray-500 dark:text-gray-500">↳ (Automatically scrolls to the <code>## Setup</code> heading on the current page).</span></li>
+                <li><strong>Deep Cross-Blog Jump:</strong> <code>[Other Post Setup](#/blog/YYYY-MM-DD-slug#setup)</code> <br /><span className="text-gray-500 dark:text-gray-500">↳ (Opens the other blog post and immediately scrolls down to its Setup heading!).</span></li>
               </ul>
             </div>
             {/* --------------------------------------------------- */}
-            
+
           </div>
 
           <button type="submit" className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors">
             Commit & Deploy Post
           </button>
-          
+
           {status && <p className="text-center font-semibold text-blue-600 dark:text-blue-400 mt-4">{status}</p>}
         </form>
       </div>
