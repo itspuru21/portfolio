@@ -21,9 +21,28 @@ export default function Skills() {
     return () => observer.disconnect();
   }, []);
 
+  // NEW: Professional DevOps Color Palette (Cool Tones)
+  const getActiveColor = (level) => {
+    switch (level) {
+      case 'Basic': return 'bg-slate-400 dark:bg-slate-500';
+      case 'Intermediate': return 'bg-blue-500';
+      case 'Expert': return 'bg-indigo-600 dark:bg-indigo-500';
+      default: return 'bg-gray-200 dark:bg-slate-800';
+    }
+  };
+
+  const getBadgeStyle = (level) => {
+    switch (level) {
+      case 'Basic': return 'text-slate-700 bg-slate-100 border-slate-200 dark:text-slate-300 dark:bg-slate-800/80 dark:border-slate-700';
+      case 'Intermediate': return 'text-blue-700 bg-blue-50 border-blue-200 dark:text-blue-400 dark:bg-blue-900/20 dark:border-blue-800/30';
+      case 'Expert': return 'text-indigo-700 bg-indigo-50 border-indigo-200 dark:text-indigo-400 dark:bg-indigo-900/20 dark:border-indigo-800/30';
+      default: return '';
+    }
+  };
+
   return (
-    <section id="skills" className="py-20" ref={sectionRef}>
-      <div className="text-center mb-16 fade-up opacity-0 translate-y-8 transition-all duration-700">
+    <section id="skills" className="py-10" ref={sectionRef}>
+      <div className="text-center mb-12 fade-up opacity-0 translate-y-8 transition-all duration-700">
         <span className="text-blue-600 dark:text-blue-500 font-bold tracking-wider uppercase text-sm">Technical Arsenal</span>
         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mt-2">Proficiency Matrix</h2>
       </div>
@@ -32,35 +51,37 @@ export default function Skills() {
         {skillsData.map((category, index) => (
           <div 
             key={index} 
-            className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 fade-up opacity-0 translate-y-8"
+            className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 fade-up opacity-0 translate-y-8"
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b-2 border-blue-600 inline-block">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 pb-4 border-b-2 border-blue-600 inline-block">
               {category.category}
             </h3>
             
-            <div className="space-y-6">
+            <div className="space-y-5">
               {category.skills.map(skill => (
-                <div key={skill.name} className="group">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                      {skill.name}
-                    </span>
-                    <span className="text-[10px] font-bold tracking-widest uppercase text-blue-600 dark:text-blue-500 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded border border-blue-200 dark:border-blue-800/30">
+                <div key={skill.name} className="group flex justify-between items-center">
+                  
+                  {/* Skill Name */}
+                  <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+                    {skill.name}
+                  </span>
+                  
+                  {/* Compact Right-Aligned Indicator + Badge */}
+                  <div className="flex items-center gap-3">
+                    
+                    {/* Tiny 3-Segment Dash */}
+                    <div className="hidden sm:flex gap-1 w-12 h-1.5 opacity-90">
+                      <div className={`w-1/3 rounded-full transition-colors duration-500 ${getActiveColor(skill.level)}`}></div>
+                      <div className={`w-1/3 rounded-full transition-colors duration-500 ${['Intermediate', 'Expert'].includes(skill.level) ? getActiveColor(skill.level) : 'bg-gray-200 dark:bg-slate-800'}`}></div>
+                      <div className={`w-1/3 rounded-full transition-colors duration-500 ${skill.level === 'Expert' ? getActiveColor(skill.level) : 'bg-gray-200 dark:bg-slate-800'}`}></div>
+                    </div>
+                    
+                    {/* Color-Coded Badge */}
+                    <span className={`text-[10px] w-24 text-center font-bold tracking-widest uppercase px-2 py-1 rounded border ${getBadgeStyle(skill.level)}`}>
                       {skill.level}
                     </span>
-                  </div>
-                  
-                  {/* 3-Tier Segmented Indicator */}
-                  <div className="flex gap-1.5 w-full h-1.5">
-                    {/* Segment 1: Always lit for Basic, Intermediate, Expert */}
-                    <div className={`w-1/3 rounded-full transition-colors duration-500 ${['Basic', 'Intermediate', 'Expert'].includes(skill.level) ? 'bg-blue-600 dark:bg-blue-500' : 'bg-gray-200 dark:bg-slate-800'}`}></div>
                     
-                    {/* Segment 2: Lit only for Intermediate and Expert */}
-                    <div className={`w-1/3 rounded-full transition-colors duration-500 ${['Intermediate', 'Expert'].includes(skill.level) ? 'bg-blue-600 dark:bg-blue-500' : 'bg-gray-200 dark:bg-slate-800'}`}></div>
-                    
-                    {/* Segment 3: Lit only for Expert */}
-                    <div className={`w-1/3 rounded-full transition-colors duration-500 ${skill.level === 'Expert' ? 'bg-blue-600 dark:bg-blue-500' : 'bg-gray-200 dark:bg-slate-800'}`}></div>
                   </div>
                 </div>
               ))}

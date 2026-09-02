@@ -13,7 +13,7 @@ import BlogPost from './pages/BlogPost';
 import Admin from './pages/Admin';
 
 const Home = () => (
-  <div className="flex flex-col gap-10">
+  <div className="flex flex-col pb-12">
     <Hero />
     <About />
     <Projects />
