@@ -80,7 +80,7 @@ export default function About() {
         <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl shadow-xl overflow-hidden fade-up opacity-0 translate-y-8 transition-all duration-700 delay-200">
           <div className="w-full aspect-[4/5] bg-gray-200 dark:bg-slate-800 relative">
             <img 
-              src="/portfolio/profile.jpg.jpg" 
+              src="/portfolio/profile.jpg" 
               alt="Purushottam Garad" 
               className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
             />
