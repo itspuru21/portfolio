@@ -36,7 +36,7 @@ export default function Projects() {
 
       {/* --- FIXED: Added 'items-start' to prevent adjacent cards from stretching --- */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        {projectsData.map((project, index) => {
+        {projectsData.filter(project => !project.draft).map((project, index) => {
           const isExpanded = expandedId === project.id;
 
           return (
