@@ -2,34 +2,33 @@
   {
     "id": 1,
     "title": "ChaosForge-Lab",
-    "type": "DevOps & Cloud",
+    "type": "Resilience Engineering",
     "description": "Predictable chaos engineering tool for testing Kubernetes auto-healing and Terraform recovery with live metrics.",
     "techStack": ["Kubernetes", "Terraform", "AWS EC2", "Docker"],
     "githubLink": "https://github.com/itspuru21/chaosforge-lab"
   },
   {
     "id": 2,
-    "title": "AutoTrip",
-    "type": "Android App",
-    "description": "An Android application for trip and travel automation. Built natively for Android using Kotlin with modern coroutines.",
-    "techStack": ["Kotlin", "Android Studio", "Coroutines"],
-    "githubLink": "https://github.com/itspuru21/Auto_Trip"
+    "title": "GitOps EKS Cluster Provisioning",
+    "type": "Container Orchestration",
+    "description": "Automated the deployment of an AWS EKS cluster using Terraform, with ArgoCD managing continuous deployment of microservices.",
+    "techStack": ["AWS EKS", "Terraform", "ArgoCD", "Helm"],
+    "githubLink": "https://github.com/itspuru21"
   },
   {
     "id": 3,
-    "title": "next19-lingo",
-    "type": "Web App · Next.js",
-    "description": "A fully functional Duolingo clone built with Next.js 19. Features gamified language learning with lessons and streaks.",
-    "techStack": ["Next.js", "TypeScript", "Tailwind"],
-    "githubLink": "https://github.com/itspuru21/next19-lingo",
-    "liveLink": "https://next19-lingo.vercel.app"
+    "title": "Serverless Log Analytics Pipeline",
+    "type": "AWS Architecture",
+    "description": "Built an event-driven architecture using Python (Boto3) and AWS Lambda to parse CloudWatch logs and trigger SNS alerts for anomalies.",
+    "techStack": ["Python", "AWS Lambda", "CloudWatch", "SNS"],
+    "githubLink": "https://github.com/itspuru21"
   },
   {
     "id": 4,
-    "title": "HMS — Hostel Management",
-    "type": "Web App · PHP",
-    "description": "A full-featured hostel management platform built for Takshyantra 2025. Streamlines hostel admissions and student life.",
-    "techStack": ["PHP", "MySQL", "HTML/CSS"],
-    "githubLink": "https://github.com/itspuru21/HMS-Hostel_Management_Syste_Takshyantra-2025"
+    "title": "Highly Available 3-Tier VPC Design",
+    "type": "Networking & Infrastructure",
+    "description": "Architected a fault-tolerant AWS environment spanning multiple Availability Zones with Application Load Balancers and Auto Scaling Groups.",
+    "techStack": ["AWS VPC", "CloudFormation", "ALB", "Bash"],
+    "githubLink": "https://github.com/itspuru21"
   }
 ]

@@ -32,9 +32,9 @@ export default function About() {
         
         {/* Left Side: Text Content */}
         <div className="space-y-6 text-gray-600 dark:text-gray-400 text-lg fade-up opacity-0 translate-y-8 transition-all duration-700 delay-100">
-          <p>I'm Purushottam Garad, a fresh B.Tech graduate in Computer Science & Technology from Shreeyash College of Engineering and Technology, Chh. Sambhajinagar, Maharashtra.</p>
-          <p>My journey started with a Diploma in Computer Technology, where I discovered my love for building software — from Android apps to fully-fledged Unity games. I enjoy turning ideas into interactive, real-world experiences through code.</p>
-          <p>Though I'm at the start of my professional career, I've built a strong technical foundation across multiple languages and platforms, and I completed an internship in WordPress development while still in my diploma program.</p>
+          <p>I'm Purushottam Garad, a Computer Science graduate from Shreeyash College of Engineering and Technology, specializing in Cloud Architecture, Automation, and Site Reliability Engineering.</p>
+          <p>My technical journey began with software development, but I quickly discovered my true passion lies in the infrastructure that powers those applications. I thrive on designing highly available AWS architectures, writing resilient Infrastructure as Code (IaC), and automating complex CI/CD pipelines.</p>
+          <p>Whether it's containerizing microservices with Docker and Kubernetes, implementing GitOps workflows with ArgoCD, or writing custom Python scripts for AWS automation, I am dedicated to building secure, scalable, and self-healing systems.</p>
           
           {/* --- MOVED QUICK INFO (Degree, Location, Status) --- */}
           <div className="flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-4 pt-4 pb-2 border-b border-gray-200 dark:border-slate-800">

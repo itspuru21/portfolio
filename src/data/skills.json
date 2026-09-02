@@ -1,18 +1,36 @@
 [
   {
-    "category": "Languages",
-    "skills": ["C", "C++", "C#", "Python", "SQL", "Kotlin"]
+    "category": "Cloud & Infrastructure as Code",
+    "skills": [
+      { "name": "AWS (EC2, EKS, S3, VPC, IAM)", "level": 90 },
+      { "name": "Terraform & HCL Configs", "level": 85 },
+      { "name": "AWS CloudFormation", "level": 75 }
+    ]
   },
   {
-    "category": "Cloud & DevOps",
-    "skills": ["AWS EC2", "Kubernetes", "Terraform", "Docker", "GitHub Actions", "Linux"]
+    "category": "Containerization & GitOps",
+    "skills": [
+      { "name": "Docker & Kubernetes (EKS, Helm)", "level": 85 },
+      { "name": "GitHub Actions (CI/CD)", "level": 90 },
+      { "name": "ArgoCD & GitOps Workflows", "level": 80 }
+    ]
   },
   {
-    "category": "Android Development",
-    "skills": ["Android Studio", "Kotlin Coroutines", "Jetpack Compose"]
+    "category": "Scripting & Automation",
+    "skills": [
+      { "name": "Python (Boto3, Flask)", "level": 85 },
+      { "name": "Bash / Shell Scripting", "level": 80 },
+      { "name": "Golang (Go)", "level": 60 },
+      { "name": "YAML / JSON", "level": 95 }
+    ]
   },
   {
-    "category": "Game Development",
-    "skills": ["Unity Engine", "C# Scripting", "Game Physics"]
+    "category": "Observability & Networking",
+    "skills": [
+      { "name": "Prometheus & Grafana", "level": 75 },
+      { "name": "AWS CloudWatch & SNS Alerts", "level": 80 },
+      { "name": "Linux (Ubuntu) & WSL2", "level": 85 },
+      { "name": "VPC Design & Subnetting", "level": 80 }
+    ]
   }
 ]
