@@ -1,5 +1,6 @@
 [
   {
+    "_comment": "Later",
     "id": 1,
     "title": "ChaosForge-Lab",
     "type": "Resilience Engineering",
@@ -9,6 +10,7 @@
     "githubLink": "https://github.com/itspuru21/chaosforge-lab"
   },
   {
+    "_comment": "Make sure to update the github link when the repo goes public",
     "id": 2,
     "title": "GitOps EKS Cluster Provisioning",
     "type": "Container Orchestration",
@@ -18,6 +20,7 @@
     "githubLink": "https://github.com/itspuru21"
   },
   {
+    "_comment": "Later",
     "id": 3,
     "title": "Serverless Log Analytics Pipeline",
     "type": "AWS Architecture",
@@ -27,6 +30,7 @@
     "githubLink": "https://github.com/itspuru21"
   },
   {
+    "_comment": "Need to add a better thumbnail image for this one later",
     "id": 4,
     "title": "Highly Available 3-Tier VPC Design",
     "type": "Networking & Infrastructure",
