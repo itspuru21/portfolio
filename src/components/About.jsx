@@ -7,7 +7,6 @@ export default function About() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          // Tailwind classes for visible state
           e.target.classList.add('opacity-100', 'translate-y-0');
           e.target.classList.remove('opacity-0', 'translate-y-8');
         }
@@ -57,35 +56,30 @@ export default function About() {
         {/* Side Info Card */}
         <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl shadow-xl overflow-hidden fade-up opacity-0 translate-y-8 transition-all duration-700 delay-200">
 
-          {/* --- Profile Image Placeholder --- */}
-          {/* Replace 'your-photo.jpg' with the actual path once you put an image in your 'public' folder */}
-          <div className="w-full h-64 bg-gray-200 dark:bg-slate-800 relative">
+          {/* --- Profile Image (Portrait optimized) --- */}
+          {/* We use aspect-[4/5] to make it a tall rectangle, and object-top to keep your head in frame */}
+          <div className="w-full aspect-[4/5] bg-gray-200 dark:bg-slate-800 relative">
             <img 
               src="/portfolio/profile.jpg" 
               alt="Purushottam Garad" 
-              className="w-full h-full object-cover" 
+              className="w-full h-full object-cover object-top" 
             />
           </div>
 
           <div className="divide-y divide-gray-200 dark:divide-slate-800">
-            <div className="flex justify-between items-center p-4">
-              <span className="text-gray-500 dark:text-gray-400 font-medium">Name</span>
-              <span className="font-semibold text-gray-900 dark:text-white">Purushottam Garad</span>
-            </div>
+            {/* Removed Name and University rows to keep it concise */}
+            
             <div className="flex justify-between items-center p-4">
               <span className="text-gray-500 dark:text-gray-400 font-medium">Degree</span>
               <span className="font-semibold text-gray-900 dark:text-white text-right">B.Tech — CST</span>
             </div>
-            <div className="flex justify-between items-center p-4">
-              <span className="text-gray-500 dark:text-gray-400 font-medium">University</span>
-              <span className="font-semibold text-gray-900 dark:text-white text-right">DBATU, Maharashtra</span>
-            </div>
+            
             <div className="flex justify-between items-center p-4">
               <span className="text-gray-500 dark:text-gray-400 font-medium">Location</span>
               <span className="font-semibold text-gray-900 dark:text-white text-right">Maharashtra, India</span>
             </div>
 
-            {/* --- Updated Status Badges --- */}
+            {/* --- Status Badges --- */}
             <div className="flex justify-between items-start p-4">
               <span className="text-gray-500 dark:text-gray-400 font-medium mt-1">Status</span>
               <div className="flex flex-col items-end gap-2">
