@@ -13,6 +13,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Custom smooth scroll function that respects the HashRouter
+  const scrollToSection = (id) => {
+    setIsMenuOpen(false); // Close mobile menu if open
+    const element = document.getElementById(id);
+    if (element) {
+      // Calculate position minus 80px to account for the fixed navbar height
+      const top = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
@@ -22,7 +33,7 @@ export default function Navbar() {
         : 'bg-transparent border-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <Link to="/" onClick={closeMenu} className="text-2xl font-black tracking-tighter text-gray-900 dark:text-white">
+        <Link to="/" onClick={() => window.scrollTo(0,0)} className="text-2xl font-black tracking-tighter text-gray-900 dark:text-white cursor-pointer">
           PG<span className="text-blue-600 dark:text-blue-500">.</span>
         </Link>
         
@@ -30,9 +41,11 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
           {isHome ? (
             <>
-              <li><a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a></li>
-              <li><a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a></li>
-              <li><a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a></li>
+              <li><button onClick={() => scrollToSection('about')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</button></li>
+              <li><button onClick={() => scrollToSection('skills')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</button></li>
+              <li><button onClick={() => scrollToSection('projects')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</button></li>
+              <li><button onClick={() => scrollToSection('experience')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</button></li>
+              <li><button onClick={() => scrollToSection('contact')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</button></li>
             </>
           ) : (
             <li><Link to="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</Link></li>
@@ -51,13 +64,15 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 px-4 py-4 space-y-4 shadow-xl">
+        <div className="md:hidden bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 px-4 py-4 space-y-4 shadow-xl flex flex-col">
           {isHome ? (
-            <div className="flex flex-col gap-4 text-gray-700 dark:text-gray-300">
-              <a href="#about" onClick={closeMenu}>About</a>
-              <a href="#skills" onClick={closeMenu}>Skills</a>
-              <a href="#projects" onClick={closeMenu}>Projects</a>
-            </div>
+            <>
+              <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 dark:text-gray-300">About</button>
+              <button onClick={() => scrollToSection('skills')} className="text-left text-gray-700 dark:text-gray-300">Skills</button>
+              <button onClick={() => scrollToSection('projects')} className="text-left text-gray-700 dark:text-gray-300">Projects</button>
+              <button onClick={() => scrollToSection('experience')} className="text-left text-gray-700 dark:text-gray-300">Experience</button>
+              <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 dark:text-gray-300">Contact</button>
+            </>
           ) : (
             <Link to="/" onClick={closeMenu} className="block text-gray-700 dark:text-gray-300">Home</Link>
           )}

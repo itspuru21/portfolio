@@ -27,11 +27,21 @@ const Home = () => (
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100 transition-colors duration-300">
+      <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100 transition-colors duration-300 relative overflow-hidden">
+        
+        {/* --- NEW: Ambient Glowing Background --- */}
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          {/* Top left blue glow */}
+          <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/20 dark:bg-blue-600/20 rounded-full blur-[100px]"></div>
+          {/* Bottom right indigo glow */}
+          <div className="absolute top-1/2 -right-20 w-[30rem] h-[30rem] bg-indigo-500/10 dark:bg-indigo-600/10 rounded-full blur-[120px]"></div>
+        </div>
+        {/* --------------------------------------- */}
+
         <Navbar />
         
-        {/* The main content flex-grows to push the footer to the bottom of the page */}
-        <main className="flex-grow pt-24 px-4 sm:px-6 max-w-6xl mx-auto w-full">
+        {/* Added relative z-10 so content sits above the background glow */}
+        <main className="flex-grow pt-24 px-4 sm:px-6 max-w-6xl mx-auto w-full relative z-10">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<BlogList />} />
@@ -40,7 +50,9 @@ export default function App() {
           </Routes>
         </main>
 
-        <Footer />
+        <div className="relative z-10">
+          <Footer />
+        </div>
       </div>
     </Router>
   );
