@@ -32,24 +32,35 @@ export default function Skills() {
         {skillsData.map((category, index) => (
           <div 
             key={index} 
-            className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-up opacity-0 translate-y-8"
+            className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 fade-up opacity-0 translate-y-8"
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 pb-4 border-b-2 border-blue-600 inline-block">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b-2 border-blue-600 inline-block">
               {category.category}
             </h3>
-            <div className="space-y-5">
+            
+            <div className="space-y-6">
               {category.skills.map(skill => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{skill.name}</span>
-                    <span className="text-sm font-bold text-blue-600 dark:text-blue-500">{skill.level}%</span>
+                <div key={skill.name} className="group">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {skill.name}
+                    </span>
+                    <span className="text-[10px] font-bold tracking-widest uppercase text-blue-600 dark:text-blue-500 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded border border-blue-200 dark:border-blue-800/30">
+                      {skill.level}
+                    </span>
                   </div>
-                  <div className="w-full bg-gray-200 dark:bg-slate-800 rounded-full h-2">
-                    <div 
-                      className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2 rounded-full transition-all duration-1000 ease-out" 
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
+                  
+                  {/* 3-Tier Segmented Indicator */}
+                  <div className="flex gap-1.5 w-full h-1.5">
+                    {/* Segment 1: Always lit for Basic, Intermediate, Expert */}
+                    <div className={`w-1/3 rounded-full transition-colors duration-500 ${['Basic', 'Intermediate', 'Expert'].includes(skill.level) ? 'bg-blue-600 dark:bg-blue-500' : 'bg-gray-200 dark:bg-slate-800'}`}></div>
+                    
+                    {/* Segment 2: Lit only for Intermediate and Expert */}
+                    <div className={`w-1/3 rounded-full transition-colors duration-500 ${['Intermediate', 'Expert'].includes(skill.level) ? 'bg-blue-600 dark:bg-blue-500' : 'bg-gray-200 dark:bg-slate-800'}`}></div>
+                    
+                    {/* Segment 3: Lit only for Expert */}
+                    <div className={`w-1/3 rounded-full transition-colors duration-500 ${skill.level === 'Expert' ? 'bg-blue-600 dark:bg-blue-500' : 'bg-gray-200 dark:bg-slate-800'}`}></div>
                   </div>
                 </div>
               ))}
