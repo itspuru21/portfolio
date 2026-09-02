@@ -54,10 +54,9 @@ export default function Education() {
                   {item.school}
                 </h4>
                 
-                {/* --- NEW: Location and Affiliation with Icons --- */}
+                {/* Location and Affiliation */}
                 <div className="flex flex-col gap-1.5 mb-6">
-                  
-                  {/* Location (Map Pin) */}
+                  {/* Location */}
                   <span className="text-xs text-gray-500 dark:text-gray-400 flex items-start gap-1.5 leading-relaxed">
                     <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -66,29 +65,29 @@ export default function Education() {
                     {item.location}
                   </span>
                   
-                  {/* Affiliation (Building) */}
+                  {/* Affiliation */}
                   <span className="text-xs text-gray-500 dark:text-gray-400 flex items-start gap-1.5 leading-relaxed">
                     <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
                     {item.affiliation}
                   </span>
-                  
                 </div>
-                {/* ------------------------------------------------ */}
                 
-                {/* Bottom Badges Container */}
-                <div className="flex flex-wrap gap-2 mt-auto pt-2">
-                  <span className="inline-flex items-center bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 px-2.5 py-1 rounded border border-blue-200 dark:border-blue-800/30 text-[11px] font-semibold">
-                    {item.date}
-                  </span>
-                  
+                {/* --- CHANGED: Bottom Badges Container stacked vertically --- */}
+                <div className="flex flex-col items-start gap-2 mt-auto pt-2">
+                  {/* Score Badge First */}
                   <span className="inline-flex items-center bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 px-2.5 py-1 rounded border border-emerald-200 dark:border-emerald-800/30 text-[11px] font-bold">
                     {item.score}
                   </span>
+
+                  {/* Date Badge Second */}
+                  <span className="inline-flex items-center bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 px-2.5 py-1 rounded border border-blue-200 dark:border-blue-800/30 text-[11px] font-semibold">
+                    {item.date}
+                  </span>
                 </div>
+                
               </div>
-              
             </div>
           </div>
         ))}
