@@ -122,6 +122,7 @@ ${content}`;
               <p className="font-bold text-blue-700 dark:text-blue-400 text-sm mb-2">💡 Markdown Quick Reference:</p>
               <ul className="list-disc pl-5 space-y-2">
                 <li><strong>Images:</strong> Upload to the <code>public/images/</code> folder in GitHub, then use: <code>![Alt](/public/images/iamgename.imageextension)</code></li>
+                <li><strong>Video:</strong> Paste Google Drive embed code. Change width/height to: <code>className="w-full aspect-video rounded-xl shadow-lg"</code></li>
                 <li><strong>Standard Link:</strong> <code>[Website](https://example.com)</code></li>
                 <li><strong>Cross-Blog Link:</strong> <code>[Other Post](#/blog/YYYY-MM-DD-slug)</code></li>
                 <li><strong>Same-Page Jump:</strong> <code>[Jump to Setup](#setup)</code> <br/><span className="text-gray-500 dark:text-gray-500">↳ (Automatically scrolls to the <code>## Setup</code> heading on the current page).</span></li>
