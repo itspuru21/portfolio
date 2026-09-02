@@ -40,7 +40,7 @@ export default function About() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-4 pt-4 pb-2 border-b border-gray-200 dark:border-slate-800">
             <div className="flex flex-col">
               <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">Degree</span>
-              <span className="font-bold text-gray-900 dark:text-white">B.Tech — CST</span>
+              <span className="font-bold text-gray-900 dark:text-white">B.Tech — CSE</span>
             </div>
             <div className="flex flex-col">
               <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">Location</span>
