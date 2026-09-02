@@ -9,11 +9,10 @@ export default function Footer() {
         
         {/* Live Visitor Counter Badge */}
         <div className="mt-2" title="Total Portfolio Views">
-          {/* This API tracks visits based on the URL parameter. It creates a GitHub-style SVG badge */}
           <img 
-            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fitspuru21.github.io%2Fportfolio&count_bg=%232563EB&title_bg=%231E293B&icon=&icon_color=%23E7E7E7&title=VISITS&edge_flat=true" 
+            src="https://api.visitorbadge.io/api/visitors?path=itspuru21.portfolio&countColor=%232563eb" 
             alt="Portfolio Visits" 
-            className="opacity-90 hover:opacity-100 transition-opacity"
+            className="opacity-90 hover:opacity-100 transition-opacity rounded shadow-sm"
           />
         </div>
 

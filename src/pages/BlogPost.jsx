@@ -1,40 +1,87 @@
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Markdown from 'react-markdown';
-import fm from 'front-matter';
-
-const rawPosts = import.meta.glob('../content/blogs/*.md', { query: '?raw', import: 'default', eager: true });
+import ReactMarkdown from 'react-markdown';
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        // FIX: Fetch directly from raw.githubusercontent.com for instant access
+        const res = await fetch(`https://raw.githubusercontent.com/itspuru21/portfolio/main/public/posts/${slug}.md`);
+        
+        if (!res.ok) throw new Error('Post not found');
+        
+        const text = await res.text();
+        
+        // Extract frontmatter
+        const titleMatch = text.match(/title:\s*"(.*?)"/);
+        const dateMatch = text.match(/date:\s*"(.*?)"/);
+        const projectMatch = text.match(/project:\s*"(.*?)"/);
+        
+        // Remove frontmatter to get content
+        const content = text.replace(/---[\s\S]*?---/, '').trim();
+
+        setPost({
+          title: titleMatch ? titleMatch[1] : 'Untitled',
+          date: dateMatch ? dateMatch[1] : '',
+          project: projectMatch ? projectMatch[1] : '',
+          content: content
+        });
+      } catch (err) {
+        console.error(err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPost();
+  }, [slug]);
+
+  if (loading) return (
+    <div className="flex justify-center items-center py-32 text-blue-600">
+      <svg className="animate-spin h-10 w-10" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+    </div>
+  );
   
-  const filePath = `../content/blogs/${slug}.md`;
-  const fileContent = rawPosts[filePath];
-
-  if (!fileContent) {
-    return <div className="text-center py-20 text-xl dark:text-white">Post not found.</div>;
-  }
-
-  const parsed = fm(fileContent);
+  if (error) return (
+    <div className="text-center py-32 text-gray-500 dark:text-gray-400">
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Post not found.</h2>
+      <p className="mb-6">This post might still be deploying via GitHub Actions. Wait 60 seconds and refresh!</p>
+      <Link to="/blog" className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors">
+        Return to Logs
+      </Link>
+    </div>
+  );
 
   return (
-    <article className="max-w-3xl mx-auto py-10">
-      <Link to="/blog" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline mb-8 inline-block">
-        &larr; Back to all posts
+    <div className="max-w-3xl mx-auto py-10 px-4">
+      <Link to="/blog" className="text-blue-600 dark:text-blue-400 hover:underline mb-8 inline-block font-semibold">
+        &larr; Back to Logs
       </Link>
       
-      <header className="mb-10 border-b border-gray-200 dark:border-slate-800 pb-10">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight tracking-tight">
-          {parsed.attributes.title}
+      <header className="mb-10 border-b border-gray-200 dark:border-slate-800 pb-8">
+        <div className="flex flex-wrap items-center gap-4 mb-4">
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{post.date}</span>
+          {post.project && post.project !== 'General / Concept' && (
+             <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-400 text-xs font-bold rounded-full border border-indigo-200 dark:border-indigo-800/30">
+               {post.project}
+             </span>
+          )}
+        </div>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
+          {post.title}
         </h1>
-        <p className="text-gray-500 dark:text-gray-400 font-medium">
-          Published on {parsed.attributes.date}
-        </p>
       </header>
 
-      {/* prose-invert automatically handles dark mode text colors for Markdown elements */}
-      <div className="prose prose-lg dark:prose-invert prose-blue max-w-none">
-        <Markdown>{parsed.body}</Markdown>
-      </div>
-    </article>
+      <article className="prose prose-lg dark:prose-invert prose-blue max-w-none prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-xl prose-img:shadow-lg">
+        <ReactMarkdown>{post.content}</ReactMarkdown>
+      </article>
+    </div>
   );
 }
