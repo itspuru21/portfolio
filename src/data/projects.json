@@ -30,5 +30,14 @@
     "description": "Architected a fault-tolerant AWS environment spanning multiple Availability Zones with Application Load Balancers and Auto Scaling Groups.",
     "techStack": ["AWS VPC", "CloudFormation", "ALB", "Bash"],
     "githubLink": "https://github.com/itspuru21"
+  },
+  {
+    "id": 5,
+    "title": "GitOps-Backed React Portfolio",
+    "type": "Frontend & CI/CD",
+    "description": "A modular, Git-backed React portfolio automatically deployed via GitHub Actions. Features a custom headless CMS utilizing the GitHub API for direct Markdown commits.",
+    "techStack": ["React", "Tailwind", "GitHub Actions", "REST API"],
+    "githubLink": "https://github.com/itspuru21/portfolio",
+    "liveLink": "https://itspuru21.github.io/portfolio/"
   }
 ]
