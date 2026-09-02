@@ -3,18 +3,33 @@
     "id": 1,
     "icon": "🎓",
     "level": "Bachelor of Technology",
-    "degree": "Computer Science & Technology",
-    "college": "Shreeyash College of Engineering & Technology",
-    "affiliation": "Affiliated to DBATU University · Chh. Sambhajinagar, Maharashtra, India",
-    "year": "Sep 2023 — July 2026"
+    "title": "Computer Science & Engineering",
+    "school": "Shreeyash College of Engineering & Technology",
+    "location": "Chh. Sambhajinagar, Maharashtra",
+    "affiliation": "Affiliated to DBATU",
+    "date": "Sep 2023 — July 2026",
+    "score": "7.59 CGPA"
   },
   {
     "id": 2,
     "icon": "📘",
     "level": "Diploma",
-    "degree": "Computer Technology",
-    "college": "Government Polytechnic Solapur",
-    "affiliation": "Affiliated to MSBTE · Maharashtra, India",
-    "year": "Dec 2020 — July 2023"
+    "title": "Computer Technology",
+    "school": "Government Polytechnic Solapur",
+    "location": "Solapur, Maharashtra",
+    "affiliation": "Affiliated to MSBTE",
+    "date": "Dec 2020 — July 2023",
+    "score": "79.20%"
+  },
+  {
+    "id": 3,
+    "icon": "🏫",
+    "level": "High School",
+    "title": "10th Grade (SSC)",
+    "school": "Saraswati Vidyalay Khadgaon ",
+    "location": "Latur, Maharashtra",
+    "affiliation": "Maharashtra State Board",
+    "date": "June 2019 — March 2020",
+    "score": "88.20%"
   }
 ]
