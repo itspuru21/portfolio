@@ -12,6 +12,7 @@
   {
     "id": 2,
     "title": "GitOps EKS Cluster Provisioning",
+    "draft": true,
     "type": "Container Orchestration",
     "description": "Automated the deployment of an AWS EKS cluster using Terraform, with ArgoCD managing continuous deployment of microservices.",
     "details": "Implemented a fully declarative GitOps workflow...",
@@ -31,6 +32,7 @@
   {
     "id": 4,
     "title": "Highly Available 3-Tier VPC Design",
+    "draft": true,
     "type": "Networking & Infrastructure",
     "description": "Architected a fault-tolerant AWS environment spanning multiple Availability Zones...",
     "details": "Built a production-ready AWS network topology from scratch...",
