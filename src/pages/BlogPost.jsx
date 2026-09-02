@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import rehypeSlug from 'rehype-slug'; // <-- NEW IMPORT
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -23,13 +24,10 @@ export default function BlogPost() {
         
         const content = text.replace(/---[\s\S]*?---/, '').trim();
 
-        // --- FIXED: Format the raw ISO timestamp into a beautiful date ---
         let displayDate = '';
         if (dateMatch && dateMatch[1]) {
           displayDate = new Date(dateMatch[1]).toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
+            year: 'numeric', month: 'long', day: 'numeric' 
           });
         }
 
@@ -76,9 +74,9 @@ export default function BlogPost() {
         <div className="flex flex-wrap items-center gap-4 mb-4">
           <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{post.date}</span>
           {post.project && post.project !== 'General / Concept' && (
-             <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-400 text-xs font-bold rounded-full border border-indigo-200 dark:border-indigo-800/30">
-               {post.project}
-             </span>
+            <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-400 text-xs font-bold rounded-full border border-indigo-200 dark:border-indigo-800/30">
+              {post.project}
+            </span>
           )}
         </div>
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
@@ -87,8 +85,41 @@ export default function BlogPost() {
       </header>
 
       <article className="prose prose-lg dark:prose-invert prose-blue max-w-none prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-xl prose-img:shadow-lg">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
-      </article>
+            <ReactMarkdown 
+              rehypePlugins={[rehypeSlug]}
+              components={{
+                a: (props) => {
+                  // Create a safe copy of props and remove 'node' to prevent React DOM warnings 
+                  // while avoiding ESLint unused variable errors.
+                  const safeProps = { ...props };
+                  delete safeProps.node;
+
+                  // If it's an internal anchor link (e.g., #architecture)
+                  if (safeProps.href && safeProps.href.startsWith('#') && !safeProps.href.startsWith('#/')) {
+                    return (
+                      <a 
+                        href={safeProps.href} 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const target = document.getElementById(safeProps.href.substring(1));
+                          if (target) {
+                            const y = target.getBoundingClientRect().top + window.scrollY - 100;
+                            window.scrollTo({ top: y, behavior: 'smooth' });
+                          }
+                        }}
+                      >
+                        {safeProps.children}
+                      </a>
+                    );
+                  }
+                  // Otherwise, render a normal link
+                  return <a {...safeProps} />;
+                }
+              }}
+            >
+              {post.content}
+            </ReactMarkdown>
+          </article>
     </div>
   );
 }
