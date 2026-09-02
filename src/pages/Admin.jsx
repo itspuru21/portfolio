@@ -117,17 +117,19 @@ ${content}`;
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Markdown Content</label>
             <textarea required rows="10" value={content} onChange={e => setContent(e.target.value)} className="w-full px-4 py-2 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none font-mono text-sm" placeholder="## Introduction..."></textarea>
             
-            {/* --- NEW: Markdown Cheat Sheet Box --- */}
+            {/* --- UPGRADED: Expanded Markdown Cheat Sheet Box --- */}
             <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 rounded-lg text-xs text-gray-700 dark:text-gray-300 space-y-2">
               <p className="font-bold text-blue-700 dark:text-blue-400 text-sm mb-2">💡 Markdown Quick Reference:</p>
-              <ul className="list-disc pl-5 space-y-1.5">
-                <li><strong>Images:</strong> Drag & drop into a GitHub Issue comment, copy the generated code, and paste here.</li>
-                <li><strong>Standard Links:</strong> <code>[Link Text](https://example.com)</code></li>
-                <li><strong>Cross-Blog Links:</strong> <code>[Read Other Post](#/blog/YYYY-MM-DD-post-slug)</code></li>
-                <li><strong>Anchor Links (Same Page):</strong> <code>[Jump to Setup](#setup)</code> (Automatically jumps to a <code>## Setup</code> heading).</li>
+              <ul className="list-disc pl-5 space-y-2">
+                <li><strong>Image Upload:</strong> Drag & drop image into a GitHub Issue comment box to generate the URL.</li>
+                <li><strong>Image Format:</strong> <code>![Alt Text](https://github.com/...)</code> <br/><span className="text-gray-500 dark:text-gray-500">↳ (Make sure to convert GitHub's default HTML <code>&lt;img&gt;</code> tag into this format so styling works!)</span></li>
+                <li><strong>Standard Link:</strong> <code>[Website](https://example.com)</code></li>
+                <li><strong>Cross-Blog Link:</strong> <code>[Other Post](#/blog/YYYY-MM-DD-slug)</code></li>
+                <li><strong>Same-Page Jump:</strong> <code>[Jump to Setup](#setup)</code> <br/><span className="text-gray-500 dark:text-gray-500">↳ (Automatically scrolls to the <code>## Setup</code> heading on the current page).</span></li>
+                <li><strong>Deep Cross-Blog Jump:</strong> <code>[Other Post Setup](#/blog/YYYY-MM-DD-slug#setup)</code> <br/><span className="text-gray-500 dark:text-gray-500">↳ (Opens the other blog post and immediately scrolls down to its Setup heading!).</span></li>
               </ul>
             </div>
-            {/* -------------------------------------- */}
+            {/* --------------------------------------------------- */}
             
           </div>
 
