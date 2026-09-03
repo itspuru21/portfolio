@@ -42,6 +42,10 @@ The entire project consisted of exactly three files:
 ![imgAa.jpg ../ method](../images/imgAa.jpg)
 ![imgAa.jpg /public/ method](/public/images/imgAa.jpg)
 
+![alt text](/public/images/profile.jpg)
+
+![My Image Description](/portfolio/images/imgAa.jpg)
+
 
 ## Why It Worked (For a While)
 
