@@ -30,13 +30,11 @@ The entire project consisted of exactly three files:
  └── 📄 script.js
 ```
 
-![Screenshot of my original 3-file portfolio website](/public/images/blog_1_1.jpg)
+![Screenshot of my original 3-file portfolio website](/public/images/img1a.png)
 *(Caption: A look back at the original static portfolio.)*
-![alt text](../images/blog1A.jpg)
-![alt text](/public/images/blog1A.jpg)
-![Project Screenshot](/portfolio/images/profile.jpg)
-![Project Screenshot](/public/images/profile.jpg)
 
+![alt text](../images/img1a.png)
+![alt text](/public/images/img1a.png)
 ## Why It Worked (For a While)
 
 There is a certain beauty in simplicity. This setup had zero build steps, zero dependencies, and absolutely no backend. 
