@@ -33,8 +33,16 @@ The entire project consisted of exactly three files:
 ![Screenshot of my original 3-file portfolio website](/public/images/img1a.png)
 *(Caption: A look back at the original static portfolio.)*
 
-![alt text](../images/img1a.png)
-![alt text](/public/images/img1a.png)
+![img1a name and ../ method](../images/img1a.png)
+![img1a name and /public/ method](/public/images/img1a.png)
+
+![imgAa.png ../ method](../images/imgAa.png)
+![imgAa.png /public/ method](/public/images/imgAa.png)
+
+![imgAa.jpg ../ method](../images/imgAa.jpg)
+![imgAa.jpg /public/ method](/public/images/imgAa.jpg)
+
+
 ## Why It Worked (For a While)
 
 There is a certain beauty in simplicity. This setup had zero build steps, zero dependencies, and absolutely no backend. 
