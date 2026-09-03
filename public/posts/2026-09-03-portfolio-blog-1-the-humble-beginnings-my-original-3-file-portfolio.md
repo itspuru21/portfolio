@@ -30,7 +30,7 @@ The entire project consisted of exactly three files:
  └── 📄 script.js
 ```
 
-![Screenshot of my original 3-file portfolio website](/public/images/blog_1_1.png)
+![Screenshot of my original 3-file portfolio website](../images/blog_1_1.png)
 *(Caption: A look back at the original static portfolio.)*
 
 ## Why It Worked (For a While)
