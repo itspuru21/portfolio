@@ -32,7 +32,8 @@ The entire project consisted of exactly three files:
 
 ![Screenshot of my original 3-file portfolio website](/public/images/blog_1_1.jpg)
 *(Caption: A look back at the original static portfolio.)*
-
+![alt text](../images/blog1A.jpg)
+![alt text](/public/images/blog1A.jpg)
 ![Project Screenshot](/portfolio/images/profile.jpg)
 ![Project Screenshot](/public/images/profile.jpg)
 
