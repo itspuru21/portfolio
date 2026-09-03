@@ -33,4 +33,4 @@ The setup boils down to configuring our main entry stylesheet (`src/index.css`).
 
 Because Vite handles the bundling during build time, our GitHub Actions pipeline doesn't need any special standalone CLI watchers. When the workflow runs `npm run build`, Vite automatically compiles our optimized CSS alongside our React components and outputs everything cleanly for production.
 
-With the CSS pipeline established, I finally had a beautiful, responsive canvas. In [Blog 6](./portfolio-blog-6-interactive-ui.md), I will explain how I used this styling to build the interactive UI components—like the expandable project cards—using React and clean state management.
+With the CSS pipeline established, I finally had a beautiful, responsive canvas. In [Blog 6](#/blog/2026-09-03-portfolio-blog-6-the-interactive-static-ui-a-devops-approach-to-frontend), I will explain how I used this styling to build the interactive UI components—like the expandable project cards—using React and clean state management.

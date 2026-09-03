@@ -33,6 +33,10 @@ The entire project consisted of exactly three files:
 ![Screenshot of my original 3-file portfolio website](/portfolio/images/blog1A.png)
 *(Caption: A look back at the original static portfolio.)*
 
+![My Image](https://drive.google.com/file/d/1ateiM9dWeGM0HXwzrQpbxWHr1XpQHzDR/view?usp=sharing)
+
+<iframe src="https://drive.google.com/file/d/1ateiM9dWeGM0HXwzrQpbxWHr1XpQHzDR/preview" width="640" height="480"></iframe>
+
 ## Why It Worked (For a While)
 
 There is a certain beauty in simplicity. This setup had zero build steps, zero dependencies, and absolutely no backend. 

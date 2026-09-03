@@ -14,9 +14,9 @@ However, presenting complex architectural diagrams and CI/CD workflows requires 
 
 One of the key features I wanted was expandable project cards. I needed a way to show a high-level summary of a project (like the tech stack and a quick blurb) and allow the user to click to reveal the deep technical dive, without navigating to a new page.
 
-In a framework like React, this is a trivial state management task. But in our [purely static, database-less architecture](./portfolio-blog-3-pivot-to-gitops.md), I had to rely on vanilla JavaScript. 
+In a framework like React, this is a trivial state management task. But in our [purely static, database-less architecture](#/blog/2026-09-03-portfolio-blog-3-the-pivot-to-gitops-designing-a-database-less-architecture), I had to rely on vanilla JavaScript. 
 
-Instead of writing repetitive code for every single card, I treated the UI components like modular infrastructure. I wrote a single, reusable JavaScript function that dynamically targets data attributes (`data-target`) on the HTML elements to toggle the hidden classes we generated with Tailwind in [Blog 5](./portfolio-blog-5-taming-tailwind.md).
+Instead of writing repetitive code for every single card, I treated the UI components like modular infrastructure. I wrote a single, reusable JavaScript function that dynamically targets data attributes (`data-target`) on the HTML elements to toggle the hidden classes we generated with Tailwind in [Blog 5](#/blog/2026-09-03-portfolio-blog-5-taming-tailwind-css-styling-a-modular-static-site).
 
 ![Expandable Project Cards Demo](/portfolio/images/blog6A.gif)
 *(Video: Demonstrating the lightweight, vanilla JS expandable project cards.)*
@@ -32,4 +32,4 @@ The logic here mirrors good DevOps practices:
 
 By keeping the frontend logic barebones, I ensure the site loads instantly. The browser doesn't have to parse megabytes of vendor code before rendering the page.
 
-With the visual shell and the basic interactivity now in place, the stage is set for the real technical heavy lifting. The UI is just an empty container. In [Blog 7](./portfolio-blog-7-markdown-engine.md), I will dive into the core of the GitOps engine: how we actually fetch, parse, and inject raw Markdown files into these beautifully styled cards.
+With the visual shell and the basic interactivity now in place, the stage is set for the real technical heavy lifting. The UI is just an empty container. In [Blog 7](#/blog/), I will dive into the core of the GitOps engine: how we actually fetch, parse, and inject raw Markdown files into these beautifully styled cards.
