@@ -30,22 +30,8 @@ The entire project consisted of exactly three files:
  └── 📄 script.js
 ```
 
-![Screenshot of my original 3-file portfolio website](/public/images/img1a.png)
+![Screenshot of my original 3-file portfolio website](/portfolio/images/blog1A.png)
 *(Caption: A look back at the original static portfolio.)*
-
-![img1a name and ../ method](../images/img1a.png)
-![img1a name and /public/ method](/public/images/img1a.png)
-
-![imgAa.png ../ method](../images/imgAa.png)
-![imgAa.png /public/ method](/public/images/imgAa.png)
-
-![imgAa.jpg ../ method](../images/imgAa.jpg)
-![imgAa.jpg /public/ method](/public/images/imgAa.jpg)
-
-![alt text](/public/images/profile.jpg)
-
-![My Image Description](/portfolio/images/imgAa.jpg)
-
 
 ## Why It Worked (For a While)
 
