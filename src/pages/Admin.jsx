@@ -121,7 +121,7 @@ ${content}`;
             <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 rounded-lg text-xs text-gray-700 dark:text-gray-300 space-y-2">
               <p className="font-bold text-blue-700 dark:text-blue-400 text-sm mb-2">💡 Markdown Quick Reference:</p>
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong>Images:</strong> Upload to the <code>public/images/</code> folder in GitHub, then use: <code>![Alt](/public/images/iamgename.imageextension)</code></li>
+                <li><strong>Images:</strong> Upload to the <code>public/images/</code> folder in GitHub, then use: <code>![Alt](/portfolio/images/iamgename.imageextension)</code></li>
                 <li>
                   <strong>Google Drive Video:</strong> Get the embed code, then replace the <code>width</code> and <code>height</code> properties with Tailwind classes:
                   <div className="mt-1 p-2 bg-gray-100 dark:bg-slate-800 rounded text-gray-500 overflow-x-auto whitespace-nowrap">
