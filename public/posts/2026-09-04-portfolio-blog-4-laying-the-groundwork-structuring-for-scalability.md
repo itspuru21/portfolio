@@ -7,13 +7,13 @@ categories: ["CI/CD", "GitOps"]
 ---
 
 
-With the concept of a static-dynamic hybrid architecture firmly in place ([see Blog 3](#/blog/2026-09-03-portfolio-blog-3-pivot-to-gitops-designing-a-database-less-architecture)), it was time to actually start writing code.
+With the concept of a static-dynamic hybrid architecture firmly in place ([see Blog 3](#/blog/2026-09-03-portfolio-blog-3-the-pivot-to-gitops-designing-a-database-less-architecture)), it was time to actually start writing code.
 
 The goal for this phase was to set up a repository that cleanly separated the frontend presentation from the backend content. I needed a structure that would not only work for GitHub Pages today, but could also be easily containerized for an eventual migration to AWS EKS. 
 
 ## Ditching the Flat Directory
 
-The old setup was a flat directory containing exactly three files ([see Blog 1](#/blog/2026-09-03-portfolio-blog-1-humble-beginnings)). That lack of organization is fine for a weekend project, but it is a disaster for a maintainable codebase. 
+The old setup was a flat directory containing exactly three files ([see Blog 1](#/blog/2026-09-03-portfolio-blog-1-the-humble-beginnings-my-original-3-file-portfolio)). That lack of organization is fine for a weekend project, but it is a disaster for a maintainable codebase. 
 
 I initialized a fresh Git repository and designed a strict directory hierarchy:
 
