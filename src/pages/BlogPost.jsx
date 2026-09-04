@@ -60,7 +60,7 @@ export default function BlogPost() {
       <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Post not found.</h2>
       <p className="mb-6">This post might still be deploying via GitHub Actions. Wait 60 seconds and refresh!</p>
       <Link to="/blog" className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors">
-        Return to Logs
+        Return to Blogs
       </Link>
     </div>
   );
@@ -68,7 +68,7 @@ export default function BlogPost() {
   return (
     <div className="max-w-3xl mx-auto py-10 px-4">
       <Link to="/blog" className="text-blue-600 dark:text-blue-400 hover:underline mb-8 inline-block font-semibold">
-        &larr; Back to Logs
+        &larr; Back to Blogs
       </Link>
       
       <header className="mb-10 border-b border-gray-200 dark:border-slate-800 pb-8">

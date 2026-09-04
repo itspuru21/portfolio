@@ -78,7 +78,7 @@ export default function BlogList() {
       {/* Header */}
       <div className="mb-12 border-b border-gray-200 dark:border-slate-800 pb-8">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
-          Engineering Logs
+          Engineering Blogs
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
           Deep dives into Cloud architecture, CI/CD automation, and lessons learned while building highly available systems.
