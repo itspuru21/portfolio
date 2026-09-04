@@ -48,4 +48,4 @@ I realized I couldn't just keep piling HTML files into a repository. But I also 
 
 I needed a hybrid. I needed the performance of a static site, but the developer experience of a dynamic CMS. 
 
-In [Blog 3](#/blog/2026-09-03-portfolio-blog-3-the-pivot-to-gitops-designing-a-database-less-architecture), I will outline the architectural pivot: how I designed a database-less, GitOps-driven architecture that allows me to write in Markdown and let the code do the rest.
+In [Blog 3](#/blog/2026-09-03-portfolio-blog-3-the-pivot-to-gitops-designing-a-database-less-architecture#The-Architectural-Requirements), I will outline the architectural pivot: how I designed a database-less, GitOps-driven architecture that allows me to write in Markdown and let the code do the rest.
