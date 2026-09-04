@@ -28,8 +28,6 @@ To solve this, I pushed the data processing to the client. I implemented a vanil
 ![Screenshot of the fetch API and parser logic in JS](https://raw.githubusercontent.com/itspuru21/portfoliodata/main/images/blog7A.png)
 *(Caption: The core JavaScript engine fetching and parsing Markdown on the fly.)*
 
-![hello](https://raw.githubusercontent.com/itspuru21/portfoliodata/main/images/blog7A.png)
-
 ## Handling Metadata (Frontmatter)
 
 One of the trickiest parts of this engine was handling the metadata. As you can see at the top of these raw blog files, I use YAML frontmatter to store variables like the `title`, `date`, and `description`. 
