@@ -2,7 +2,7 @@
 title: "Portfolio Blog 3 The Pivot to GitOps - Designing a Database-less Architecture"
 date: "2026-09-03T18:16:37.616Z"
 summary: "How I conceptualized a static-dynamic hybrid architecture using Git as a headless database to prepare for future cloud migrations."
-project: "React Portfolio"
+project: "Portfolio/Github Actions/Pages"
 categories: ["CI/CD", "GitOps"]
 ---
 

@@ -2,7 +2,7 @@
 title: "Portfolio Blog 2 Hitting the Ceiling - Why the Monolith Had to Die"
 date: "2026-09-03T18:14:00.132Z"
 summary: "Exploring the growing pains of a purely static portfolio and the manual nightmare of updating content without a CMS."
-project: "React Portfolio"
+project: "Portfolio/Github Actions/Pages"
 categories: ["CI/CD", "GitOps"]
 ---
 

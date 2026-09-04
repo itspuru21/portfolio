@@ -2,7 +2,7 @@
 title: "Portfolio Blog 1 The Humble Beginnings - My Original 3-File Portfolio"
 date: "2026-09-03T17:53:40.295Z"
 summary: "A look back at where it all started: a simple, static HTML/CSS/JS monolith, and why it was the perfect starting point before evolving."
-project: "React Portfolio"
+project: "Portfolio/Github Actions/Pages"
 categories: ["CI/CD", "GitOps"]
 ---
 

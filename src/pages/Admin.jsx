@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const AVAILABLE_CATEGORIES = ['AWS', 'Terraform', 'Kubernetes', 'CI/CD', 'Security', 'Networking', 'Python', 'Chaos Engineering', 'GitOps'];
-const AVAILABLE_PROJECTS = ['General / Concept', 'ChaosForge-Lab', 'GitOps EKS Cluster', 'Serverless Log Pipeline', '3-Tier VPC Design', 'React Portfolio'];
+const AVAILABLE_PROJECTS = ['General / Concept', 'ChaosForge-Lab', 'GitOps EKS Cluster', 'Serverless Log Pipeline', '3-Tier VPC Design', 'Portfolio/Github Actions/Pages'];
 
 export default function Admin() {
   const [title, setTitle] = useState('');
