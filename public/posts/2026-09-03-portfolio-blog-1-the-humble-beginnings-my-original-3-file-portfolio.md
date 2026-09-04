@@ -26,6 +26,8 @@ The entire project consisted of exactly three files:
  └── 📄 script.js
 ```
 
+hello
+
 ![Alt text](https://github.com/itspuru21/portfoliodata/blob/main/images/blog1A.png)
 
 
