@@ -38,4 +38,4 @@ This approach gave birth to what I call my static-dynamic architecture:
 
 This setup is infinitely scalable for a personal site. If I write 100 blog posts, I just commit 100 Markdown files. No database queries to optimize, no backend endpoints to secure.
 
-With the conceptual architecture locked in, it was time to actually start building. In [Blog 4](#/blog/portfolio-blog-4-laying-groundwork), I will break down how I laid the initial groundwork and structured the repository for this new modular era.
+With the conceptual architecture locked in, it was time to actually start building. In [Blog 4](#/blog/portfolio-blog-4-laying-groundwork-structuring-for-scalability), I will break down how I laid the initial groundwork and structured the repository for this new modular era.
