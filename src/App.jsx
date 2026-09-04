@@ -12,6 +12,7 @@ import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import Admin from './pages/Admin';
 import ScrollToTop from './components/ScrollToTop';
+import { useEffect } from 'react';
 
 const Home = () => (
   <div className="flex flex-col pb-12">
@@ -26,10 +27,40 @@ const Home = () => (
 );
 
 export default function App() {
+
+  useEffect(() => {
+    const handleScrollBehavior = () => {
+      const hashParts = window.location.hash.split('#');
+
+      if (hashParts.length > 2) {
+        // Deep link found!
+        const targetId = hashParts[2];
+
+        setTimeout(() => {
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Normal page change, scroll to top
+        window.scrollTo(0, 0);
+      }
+    };
+
+    // Attach the listener when the app loads
+    window.addEventListener('hashchange', handleScrollBehavior);
+
+    // Clean it up when the app unmounts
+    return () => {
+      window.removeEventListener('hashchange', handleScrollBehavior);
+    };
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100 transition-colors duration-300 relative overflow-hidden">
-        
+
         {/* --- NEW: Ambient Glowing Background --- */}
         <div className="fixed inset-0 z-0 pointer-events-none">
           {/* Top left blue glow */}
@@ -40,7 +71,7 @@ export default function App() {
         {/* --------------------------------------- */}
 
         <Navbar />
-        
+
         {/* Added relative z-10 so content sits above the background glow */}
         <main className="flex-grow pt-24 px-4 sm:px-6 max-w-6xl mx-auto w-full relative z-10">
           <Routes>
