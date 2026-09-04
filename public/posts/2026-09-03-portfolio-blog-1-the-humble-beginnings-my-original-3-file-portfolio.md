@@ -27,14 +27,28 @@ The entire project consisted of exactly three files:
 ```
 
 hello
-
+<!-- 
 ![Alt text](https://github.com/itspuru21/portfoliodata/blob/main/images/blog1A.png)
 
 ![Alt text](blob:https://github.com/e2813b7f-c7d3-49d2-b797-a9bba67b3b4a)
 
 ![Alt text](https://github.com/e2813b7f-c7d3-49d2-b797-a9bba67b3b4a)
 
-![Alt text](blob:https://githubusercontent.com/e2813b7f-c7d3-49d2-b797-a9bba67b3b4a)
+![Alt text](blob:https://githubusercontent.com/e2813b7f-c7d3-49d2-b797-a9bba67b3b4a) -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+![Alt text](https://raw.githubusercontent.com/itspuru21/portfoliodata/main/images/blog1A.png)
 
 
 
