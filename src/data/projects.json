@@ -44,7 +44,7 @@
     "title": "GitOps-Backed React Portfolio",
     "type": "Frontend & CI/CD",
     "description": "A modular, Git-backed React portfolio automatically deployed via GitHub Actions...",
-    "details": "Instead of a simple static site, I engineered a serverless headless CMS...",
+    "details": "Instead of a simple static site, I engineered a serverless headless CMS driven entirely by GitOps principles. To eliminate the need for a traditional SQL database, I built a bespoke Admin panel that acts as a pipeline trigger. It uses the GitHub REST API to commit raw Markdown directly to version control. This commit triggers a highly optimized GitHub Actions CI/CD pipeline (tuned with dependency caching to deploy in under 30 seconds). Media assets are decoupled into a secondary repository acting as a CDN to prevent codebase bloat. The next phase of this project is migrating the hosting from GitHub Pages to a custom AWS VPC and EKS cluster provisioned via Terraform and monitored by CloudWatch, grafana, and other observability tools.",
     "techStack": ["React", "Tailwind", "GitHub Actions", "REST API"],
     "githubLink": "https://github.com/itspuru21/portfolio",
     "liveLink": "https://itspuru21.github.io/portfolio/"
