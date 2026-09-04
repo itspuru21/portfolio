@@ -69,7 +69,7 @@ ${content}`;
     <div className="max-w-4xl mx-auto py-10">
       <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-slate-800">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-b border-gray-200 dark:border-slate-800 pb-4">
-          Write a New Engineering Log
+          Write a New Engineering Blog
         </h1>
 
         <form onSubmit={handlePublish} className="space-y-6">
