@@ -26,7 +26,7 @@ The entire project consisted of exactly three files:
  └── 📄 script.js
 ```
 
-![Alt text]([image-url](https://github.com/itspuru21/portfoliodata/blob/main/images/blog1A.png))
+![Alt text](https://github.com/itspuru21/portfoliodata/blob/main/images/blog1A.png)
 
 
 <iframe src="https://drive.google.com/file/d/1ateiM9dWeGM0HXwzrQpbxWHr1XpQHzDR/preview" width="100%" height="480"></iframe>*(Caption: A look back at the original static portfolio.)*
