@@ -25,7 +25,7 @@ GitOps is a practice where a Git repository serves as the single source of truth
 
 Instead of storing blog posts in a Postgres database, I would store them as raw Markdown (`.md`) files in the repository. Instead of a backend server fetching data on every page load, the frontend would pull these files at build time (or fetch them statically on the client side).
 
-<iframe src="https://drive.google.com/file/d/1powhqwp_S5HnzZV0fuh1-bDtsdZvrDbd/preview" width="100%" height="480"></iframe>
+![Architectural diagram showing GitOps workflow](https://raw.githubusercontent.com/itspuru21/portfoliodata/main/images/blog3A.png)
 *(Caption: The Static-Dynamic Flow: Using Git as a headless CMS.)*
 
 ## The "Static-Dynamic" Hybrid

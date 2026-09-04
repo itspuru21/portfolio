@@ -26,33 +26,8 @@ The entire project consisted of exactly three files:
  └── 📄 script.js
 ```
 
-hello
-<!-- 
-![Alt text](https://github.com/itspuru21/portfoliodata/blob/main/images/blog1A.png)
-
-![Alt text](blob:https://github.com/e2813b7f-c7d3-49d2-b797-a9bba67b3b4a)
-
-![Alt text](https://github.com/e2813b7f-c7d3-49d2-b797-a9bba67b3b4a)
-
-![Alt text](blob:https://githubusercontent.com/e2813b7f-c7d3-49d2-b797-a9bba67b3b4a) -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-![Alt text](https://raw.githubusercontent.com/itspuru21/portfoliodata/main/images/blog1A.png)
-
-
-
-<iframe src="https://drive.google.com/file/d/1ateiM9dWeGM0HXwzrQpbxWHr1XpQHzDR/preview" width="100%" height="480"></iframe>*(Caption: A look back at the original static portfolio.)*
+![Screenshot of my original 3-file portfolio website](https://raw.githubusercontent.com/itspuru21/portfoliodata/main/images/blog1A.png)
+*(Caption: A look back at the original static portfolio.)*
 
 ## Why It Worked (For a While)
 

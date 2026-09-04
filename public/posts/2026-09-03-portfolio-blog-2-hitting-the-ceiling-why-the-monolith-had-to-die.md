@@ -29,7 +29,7 @@ Here is what the process looked like every time I wanted to add a new project or
 </div>
 ```
 
-<iframe src="https://drive.google.com/file/d/1WsiyTOqMh-4uKqDMxQa3Za-SeZj9Jv6j/preview" width="100%" height="480"></iframe>
+![Screenshot showing messy HTML code with repetitive div blocks](https://raw.githubusercontent.com/itspuru21/portfoliodata/main/images/blog2A.png)
 *(Caption: The raw HTML file—where content updates meant risky code edits.)*
 
 ## The Automation Gap
